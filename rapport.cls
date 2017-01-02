@@ -12,6 +12,7 @@
 \usepackage{textcomp}						% caractères additionnels
 \usepackage{mathtools,amssymb,amsthm}		% packages de l'AMS + mathtools
 \usepackage{siunitx}
+\usepackage{stmaryrd}
 \usepackage{bm}
 
 \usepackage{geometry}						% gestion des marges

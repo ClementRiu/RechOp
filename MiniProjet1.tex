@@ -129,5 +129,45 @@ avec un coût total de 368.
 
 \section{Deuxième partie - Un problème d'ordonnancement de trains et de navettes}
 
+Nous avons décider de formuler le problème sous forme de programme linéaire en nombre entier.
+
+\subsection{Notation utilisée}
+
+Les paramètres du problèmes sont :$e$, $h$ et $p$ sont respectivement le nombre d'eurostars, de HGV et de PAX que l'on souhaite faire passer dans le tunnel. $n = e + h + p$ et $n_{mat} = [e, h, p]$. Enfin, $t$ est le tableau des tampons comme défini dans l'ennoncé.
+
+On introduit également la quantité $f_{max} = \frac{3600}{n - 1}$ qui correspond à une borne supérieure facile à calculer de la flexibilité.
+
+Les variables que l'on introduit pour résoudre le problème sont :
+\begin{itemize}
+	\item $T$ est une matrice $n \times 3$ qui permet de lire l'ordre des trains qui partent. Ainsi, le coefficient $T_{i,j}$ vaut $1$ si un train de type $j$ est le $i$\up{ième} mobile à entrer dans le tunnel. Il vaut 0 sinon.
+	\item $D$ est une matrice $n \times 3$ qui donne la date de départ des trains. Là où $T$ est nulle, $D$ est nulle. Sinon, la valeur de $D_{i, j}$ est le moment (en seconde) où le train part du quai. (Notons que le premier départ possible est à $1s$ et le dernier à $3600s$ au lieu de $0s$ et $3599s$).
+	\item $E$ est une matrice $n \times n$ qui va montrer les moments de départs des eurostars de la première demi-heure. Ainsi, $E_{i, j}$ vaut $1$ si le $i$\up{ième} train à partir est un eurostar, le $j$\up{ième} train est également un eurostar et qu'ils sont séparés de $1800s$. Cela équivaut à $\mathbf{1_{T_{i,1} = T_{j,1} = 1\ \cup\ D_{j,1} - D_{i,1} = 1800}}$.
+	\item $S$ est un vecteur à $n$ lignes. Il vaut $1$ si le train partant en $i$\up{ième} position est un eurostar et que la date de départ est inférieure à $1800s$.
+	\item Finalement, $f_{value}$ est la valeur de la flexibilité.
+\end{itemize}
+
+\subsection{Représentation linéaire des contraintes}
+
+Notre fonction objectif est donc simplement $f_{value}$ qu'on cherche à maximiser.
+
+\begin{itemize}
+	\item Il n'y a qu'un seul train qui part à chaque horaire : $\forall i \in [n]; \ \sum_{j = 1}^3 T_{i, j} = 1$.
+	\item On envoie le bon nombre de chaque type de train : $\forall j \in [3]; \ \sum_{j = 1}^n T_{i, j} = n_{mat}[j]$.
+	\item On contraint $D$ à être nulle quand $T$ est nulle et sinon, à être entre $1$ et $3600$ : $\forall i \in [n], \forall j \in [3]; \ T_{i, j} \le D_{i, j} \le 3600 * T_{i, j}$.
+	\item Cette contrainte représente la contrainte d'écart minimal entre deux trains consécutifs : 
+	Si on considère dans un premier temps les trains qui se suivent dans la même heure, on a une contrainte du type : $D_{k, l} - D_{i, j} \ge t_{j, l} + f_{value}$ (sans se soucier des indices pour le moment). Si les trains se suivent sur deux horaires différentes on modifierais simplement de telle sorte : $D_{k, l} - (D_{i, j} - 3600) \ge t_{j, l} + f_{value}$. Maintenant, lorsque l'on parcourt les indices, il y a des cas où $D$ sera nulle, et donc il faut qu'on impose rien dans ce cas. C'est pourquoi on soustrait au terme de droite la valeur : $(3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l}))$ qui vaut 0 lorsque $D_{i, j}$ et $D_{k, l}$ sont non nuls, et est plus grand que $t_{j, l} + f_{value}$ sinon. En rajoutant ces conditions, les indices peuvent librement parcourir $[n]$ et $[3]$.
+	\begin{itemize}
+		\item $\forall i \in [n-1], \forall k \in \llbracket i, n \rrbracket, \forall (j, l) \in [3]^2; D_{k, l} - D_{i, j} \ge t_{j, l} + f_{value} - (3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l}))$
+		\item $\forall i \in [n-1], \forall k \in \llbracket i, n \rrbracket, \forall (j, l) \in [3]^2; D_{k, l} - (D_{i, j} - 3600) \ge t_{j, l} + f_{value} - (3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l}))$
+	\end{itemize}
+	\item Cette contrainte est la première de celle représentant l'écart de 30 minutes entre deux eurostars. Elle assure que $E$ ne donne des informations que sur les eurostars de la première demi-heure. $\forall i \in [n], \forall j \in [i]; E_{i, j} = 0$.
+	\item On s'assure ici qu'il existe un unique eurostar associé à un autre eurostar.
+	\begin{itemize}
+		\item $\forall i \in [n-1]; \sum_{j = i+1}^n E_{i, j} = S_i$.
+		\item $\forall j \in \llbracket 2, n \rrbracket; \sum_{i = 1}^{j-1} E_{i, j} = T_{i, 1} - S_i$.
+	\end{itemize}
+	\item Enfin, cette dernière contrainte fixe l'écart, lorsqu'il est justifiée à 30 minutes : $\forall i \in [n-1], \forall j \in \llbracket i+1, n \rrbracket; - 5400 * (1 - E_{i, j})  \le D_{j, 1} - D_{i, 1} - 1800 \le 1800 * (1 - E_{i, j})$
+
+\end{itemize}
 
 \end{document}

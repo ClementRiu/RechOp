@@ -16,7 +16,7 @@ var T{1..n, 1..3} binary;
 # Variable D_{i,j} : date de départ du ieme train, s'il est de type j. 0 sinon.
 var D{1..n, 1..3};
 
-# Variable E_{i,j} : 1 si T_{i,1} = T_{j,1} = 1 (les trains aux dates i et j sont des eurostars) et D_{j,1} - D_{i,1} = 30
+# Variable E_{i,j} : 1 si T_{i,1} = T_{j,1} = 1 (les trains aux dates i et j sont des eurostars) et D_{j,1} - D_{i,1} = 1800
 var E{1..n, 1..n} binary;
 
 # Variable S_{i} : 1 si le train qui part à la date i est un eurostar et que celui-ci est dans la première demi-heure (donc si l'eurostar associé part après), 0 sinon
