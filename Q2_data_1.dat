@@ -1,0 +1,9 @@
+param e := 4;
+param h := 8;
+param p := 2;
+param n_mat := 1 4, 2 8, 3 2;
+param n := 14;
+param t : 1 2 3:=
+1 180 180 120
+2 480 180 180
+3 480 180 120;
