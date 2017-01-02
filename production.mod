@@ -80,5 +80,5 @@ for {r in 1..R} {
     }
     printf "\n";
 }
-printf "c total (p) : %d\n", f;
+printf "cout total (p) : %d\n", f;
 end;
