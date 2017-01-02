@@ -26,7 +26,7 @@ subject to
 stock_initial {r in 1..R}: s[0,r] = stock_ini[r];
 
 # Modification du stock par la production et la demande
-evolution_stock {i in 1..T, r in 1..R} : s[i,r] = s[i-1,r] + x[i,r] - d[r,i];
+stock {i in 1..T, r in 1..R} : s[i,r] = s[i-1,r] + x[i,r] - d[r,i];
 
 # Limite de production hebdomadaire
 quantite_produite {i in 1..T} : sum {r in 1..R} x[i,r] <= Q;

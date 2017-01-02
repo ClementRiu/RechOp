@@ -10,11 +10,11 @@
 
 \subsection{1. Programme linéaire}
 
-Pour modéliser le problème nous allons utiliser les notations suivantes :
+Pour modéliser le problème, nous utiliserons les notations suivantes :
+\ \\
+$T$ est l'ensemble des instants du problèmes (les semaines de production). $T^*$ est $T$ privé de la semaine $0$. $\mathcal{R}$ est l'ensemble des références qu'il est possible de produire.
 
-$T$ est l'ensemble des instant du problèmes (les semaines de production). $T^*$ est $T$ privé de la semaine $0$. $\mathcal{R}$ est l'ensemble des références qu'il est possible de produire.
-
-Ensuite, les données du problèmes seront : $\forall i \in T$ et $\forall r \in \mathcal{R}$, $s_{i,r}$ le stock de la référence $r$ en semaine $i$ et $x_{i,r}$ la quantité produite en semaine $i$ de la référence $r$. Enfin $d_{i,r}$ est la demande en référence $r$ la semaine $i$ et $c_r$ est le coût du stock de la référence $r$. $Q$ est la quantité maximale produite chaque semaine et $N$ est la quantité maximale de référence produite chaque semaine.
+Ensuite, les données du problèmes sont : $\forall i \in T$ et $\forall r \in \mathcal{R}$, $s_{i,r}$ le stock de la référence $r$ en semaine $i$ et $x_{i,r}$ la quantité produite en semaine $i$ de la référence $r$. Enfin $d_{i,r}$ est la demande en référence $r$ la semaine $i$ et $c_r$ est le coût du stock de la référence $r$. $Q$ est la quantité maximale produite chaque semaine et $N$ est la quantité maximale de référence produite chaque semaine.
 \ \\
 
 On cherche à minimiser le coût total (production et stockage). On cherche donc à minimiser $$\sum_{i \in T^*} \sum_{r \in \mathcal{R}} c_r \times s_{i, r}$$ \\
@@ -48,11 +48,13 @@ Notre problème se modélise donc par programme linéaire suivant : \\
 \ \\
 \ \\
 \emph{Détails d'implémentation} : \\
-Pour traduire la condition avec l'indicatrice $\forall i \in T^*; \sum_{r \in \mathcal{R}} \mathbf{1}_{x_{i, r} > 0} \le N$, on introduit la matrice A, dont l'élément (i,r) vaut 1 si la référence r a été produite pendant la semaine i, et zéro sinon. \\
+Pour traduire la condition avec l'indicatrice $\forall i \in T^*; \sum_{r \in \mathcal{R}} \mathbf{1}_{x_{i, r} > 0} \le N$, on introduit la matrice A, dont l'élément (i,r) vaut 1 si la référence r a été produite pendant la semaine i, et zéro sinon. Il faut donc ajouter une contrainte qui forcera à produire les uniquement les références mentionnées dans la matrice A. \\
 \ \\
 On traduit donc la 2e contrainte par :
 $$\forall i \in T^*, \sum_{r \in \mathcal{R}}a_{i,r} \le N $$
+$$\forall r \in \mathcal{R} $$
 
+Par ailleurs, dans l'implémentation, on inverse les lignes et colonnes de d (conformément à la structure des données reçues par mail)
 
 \subsection{2. Résolution avec GLPK}
 On récupère les trois sets de données envoyés par mails, et on les place dans les fichiers \emph{Q1\_dataset\_1.dat}, \emph{Q1\_dataset\_2.dat} et \emph{Q1\_dataset\_3.dat}. \\
@@ -62,11 +64,70 @@ Le programme linéaire a été traduit dans GLPK dans le fichier \emph{productio
 Le programme ne trouve pas de solution réalisable pour la première instance. \ \\
 En prenant $N'=3$ (sachant que $N=2$) et $Q'=Q$, on trouve une solution réalisable, de coût 226. $Q+N$ minore la solution optimale mais n'est pas réalisable, $Q'+N'=Q+N+1$. Cette instance étant réalisable et s'agissant un problème linéaire en nombres entiers, c'est la solution optimale. \\
 
+En prenant donc $Q'=Q$ et $N'=N+1=3$, on trouve le plan de production suivant (la matrice se lit avec la ligne r = référence r, colonne i = semaine i, conformément au format des données reçues) :
 
+\[x=
+\begin{matrix}
+0 & 5 & 0 & 6 & 0 & 4 \\
+2 & 0 & 8 & 0 & 0 & 0 \\
+0 & 8 & 0 & 0 & 5 & 0 \\
+3 & 0 & 0 & 7 & 0 & 2 \\
+0 & 0 & 7 & 0 & 0 & 2 \\
+0 & 0 & 5 & 0 & 0 & 0 \\
+0 & 5 & 0 & 0 & 8 & 0 \\
+0 & 0 & 0 & 0 & 5 & 0 \\
+5 & 0 & 0 & 7 & 0 & 0
+\end{matrix}
+\]
 
+avec un coût total de 226. \\
+Si on veut satisfaire la demande, il vaut donc mieux ouvrir une nouvelle ligne de production afin d'être capable de produire une référence supplémentaire dans la semaine (et ainsi augmenter $N$).
 
-\begin{lstlisting}
-test
-\end{lstlisting}
+\subsubsection{Deuxième instance}
+On trouve le plan optimal de production suivant (on a toujours $x[r,i]$ la quantité produite de la référence r à la semaine i, conformément au format des données reçues):
+
+\[x=
+\begin{matrix}
+0 & 0 & 2 & 5 & 7 & 4 & 5 & 0 & 0 & 3 \\
+0 & 14 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 14 & 0 & 0 & 0 & 0 & 8 & 0 & 6 \\
+0 & 0 & 0 & 7 & 1 & 2 & 1 & 3 & 3 & 2 \\
+0 & 0 & 0 & 4 & 0 & 2 & 4 & 4 & 5 & 0 \\
+15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 8 & 0 & 0 & 2 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 4 & 0 & 2 & 3 & 0 \\
+0 & 3 & 6 & 0 & 2 & 0 & 4 & 0 & 3 & 0 \\
+0 & 0 & 0 & 4 & 2 & 0 & 6 & 0 & 2 & 5 \\
+8 & 6 & 0 & 0 & 0 & 8 & 0 & 0 & 0 & 4 \\
+0 & 0 & 0 & 3 & 3 & 3 & 3 & 4 & 7 & 3 \\
+\end{matrix}
+\]
+
+avec un coût total de 766.
+
+\subsubsection{Troisième instance}
+On trouve le plan optimal de production suivant (on a toujours $x[r,i]$ la quantité produite de la référence r à la semaine i, conformément au format des données reçues):
+
+\[x=
+\begin{matrix}
+0 & 18 & 0 & 0 & 0 & 8 & 3 & 0 & 0 & 5 \\
+0 & 0 & 0 & 6 & 6 & 0 & 0 & 4 & 0 & 0 \\
+0 & 0 & 9 & 0 & 3 & 2 & 4 & 0 & 3 & 7 \\
+0 & 1 & 10 & 0 & 0 & 3 & 0 & 3 & 5 & 0 \\
+0 & 1 & 2 & 6 & 1 & 2 & 5 & 5 & 5 & 0 \\
+14 & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 8 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 3 & 1 & 1 & 4 & 0 \\
+1 & 4 & 1 & 8 & 2 & 0 & 0 & 1 & 1 & 2 \\
+0 & 1 & 5 & 0 & 4 & 0 & 6 & 0 & 2 & 5 \\
+0 & 0 & 0 & 4 & 0 & 6 & 6 & 8 & 0 & 4 \\
+0 & 0 & 0 & 3 & 3 & 3 & 2 & 5 & 7 & 3 \\
+\end{matrix}
+\]
+
+avec un coût total de 368.
+
+\section{Deuxième partie - Un problème d'ordonnancement de trains et de navettes}
+
 
 \end{document}
