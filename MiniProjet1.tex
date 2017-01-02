@@ -6,7 +6,7 @@
 
 \maketitle
 
-\section{2/ Problème de production}
+\section{Première partie - Un problème de production}
 
 \subsection{1. Programme linéaire}
 
@@ -14,22 +14,28 @@ Pour modéliser le problème nous allons utiliser les notations suivantes :
 
 $T$ est l'ensemble des instant du problèmes (les semaines de production). $T^*$ est $T$ privé de la semaine $0$. $\mathcal{R}$ est l'ensemble des références qu'il est possible de produire.
 
-Ensuite, les données du problèmes seront : $\forall t \in T$ et $\forall r \in \mathcal{R}$, $s_{t,r}$ le stock de la référence $r$ en semaine $t$ et $x_{t,r}$ la quantité produite en semaine $t$ de la référence $r$. Enfin $d_{t,r}$ est la demande en référence $r$ la semaine $t$ et $c_r$ est le coût du stock de la référence $r$. $Q$ est la quantité maximale produite chaque semaine et $N$ est la quantité maximale de référence produite chaque semaine.
+Ensuite, les données du problèmes seront : $\forall i \in T$ et $\forall r \in \mathcal{R}$, $s_{i,r}$ le stock de la référence $r$ en semaine $i$ et $x_{i,r}$ la quantité produite en semaine $i$ de la référence $r$. Enfin $d_{i,r}$ est la demande en référence $r$ la semaine $i$ et $c_r$ est le coût du stock de la référence $r$. $Q$ est la quantité maximale produite chaque semaine et $N$ est la quantité maximale de référence produite chaque semaine.
 
-Notre programme linéaire sera le suivant :
+
+On cherche à minimiser le coût total (production et stockage). On cherche donc à minimiser $\sum_{i \in T^*} \sum_{r \in \mathcal{R}} c_r \times s_{i, r}$
+
+
+Notre programme linéaire sera le suivant : \\
 
 \begin{equation*}
 \begin{aligned}
-& \min \ \ \  \sum_{t \in T^*} \sum_{r \in \mathcal{R}} c_r \times s_{t, r} \\
+& \min \ \ \  \sum_{i \in T^*} \sum_{r \in \mathcal{R}} c_r \times s_{i, r} \\
 & \text{sous contraintes : } \\
-& \forall t \in T; \forall r \in \mathcal{R}; s_{t,r} = x_{t,r} + s_{t-1,r} - d_{t, r}\\
-& \forall t \in T^*; \sum_{r \in \mathcal{R}} \mathbf{1}_{x_{t, r} > 0} \le N \\
-& \forall t \in T^*; \sum_{r \in \mathcal{R}} x_{t, r} \le Q \\
-& \forall t \in T; \forall r \in \mathcal{R}; s_{t, r} \in \R^+ \\
-& \forall t \in T; \forall r \in \mathcal{R}; x_{t, r} \in \R^+
+& \forall i \in T; \forall r \in \mathcal{R}; s_{i,r} = x_{i,r} + s_{i-1,r} - d_{i, r}\\
+& \forall i \in T^*; \sum_{r \in \mathcal{R}} \mathbf{1}_{x_{i, r} > 0} \le N \\
+& \forall i \in T^*; \sum_{r \in \mathcal{R}} x_{i, r} \le Q \\
+& \forall i \in T; \forall r \in \mathcal{R}; s_{i, r} \in \R^+ \\
+& \forall i \in T; \forall r \in \mathcal{R}; x_{i, r} \in \R^+
 \end{aligned}
 \end{equation*}
 
-
+\begin{lstlisting}
+caca
+\end{lstlisting}
 
 \end{document}

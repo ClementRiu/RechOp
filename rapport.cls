@@ -71,7 +71,7 @@
 \renewcommand{\P}{\mathbf{P}}
 \newcommand{\E}{\mathbf{E}}
 \newcommand{\N}{\mathbf{N}}
-\newcommand{\R}{\mathbf{R}}
+\newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbf{C}}
 \newcommand{\Z}{\mathbf{Z}}
 
@@ -81,3 +81,26 @@
 
 \theoremstyle{definition}
 \newtheorem{exo}{Exercice}
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.96,0.96,0.96}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{myorange}{HTML}{8B5300}
+\definecolor{mymagenta}{HTML}{BC5A65}
+\definecolor{myazur}{HTML}{317ECC}
+\definecolor{mylightdark}{HTML}{4E4E4E}
+
+\lstset{
+  backgroundcolor=\color{mygray},
+  language=Python,
+  basicstyle=\footnotesize\ttfamily\color{mylightdark},        % size of fonts used for the code
+  xleftmargin=0.25in,
+  xrightmargin=0.25in,
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  keywordstyle=\color{mymagenta},       % keyword style
+  commentstyle=\color{mygreen},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  stringstyle=\color{myazur},     % string literal style
+}

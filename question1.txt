@@ -1,0 +1,1421 @@
+Problem:    question1
+Rows:       513
+Columns:    372 (120 integer, 120 binary)
+Non-zeros:  1212
+Status:     INTEGER OPTIMAL
+Objective:  f = 766 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 f                         766                             
+     2 stock_initial[1]
+                                   8             8             = 
+     3 stock_initial[2]
+                                   8             8             = 
+     4 stock_initial[3]
+                                   6             6             = 
+     5 stock_initial[4]
+                                   9             9             = 
+     6 stock_initial[5]
+                                   9             9             = 
+     7 stock_initial[6]
+                                   6             6             = 
+     8 stock_initial[7]
+                                   8             8             = 
+     9 stock_initial[8]
+                                   6             6             = 
+    10 stock_initial[9]
+                                   6             6             = 
+    11 stock_initial[10]
+                                   8             8             = 
+    12 stock_initial[11]
+                                   6             6             = 
+    13 stock_initial[12]
+                                   7             7             = 
+    14 evolution_stock[1,1]
+                                  -4            -4             = 
+    15 evolution_stock[1,2]
+                                  -3            -3             = 
+    16 evolution_stock[1,3]
+                                  -4            -4             = 
+    17 evolution_stock[1,4]
+                                  -1            -1             = 
+    18 evolution_stock[1,5]
+                                  -4            -4             = 
+    19 evolution_stock[1,6]
+                                   0            -0             = 
+    20 evolution_stock[1,7]
+                                  -2            -2             = 
+    21 evolution_stock[1,8]
+                                  -2            -2             = 
+    22 evolution_stock[1,9]
+                                  -6            -6             = 
+    23 evolution_stock[1,10]
+                                  -5            -5             = 
+    24 evolution_stock[1,11]
+                                  -2            -2             = 
+    25 evolution_stock[1,12]
+                                  -2            -2             = 
+    26 evolution_stock[2,1]
+                                  -4            -4             = 
+    27 evolution_stock[2,2]
+                                  -1            -1             = 
+    28 evolution_stock[2,3]
+                                  -2            -2             = 
+    29 evolution_stock[2,4]
+                                  -6            -6             = 
+    30 evolution_stock[2,5]
+                                  -1            -1             = 
+    31 evolution_stock[2,6]
+                                  -2            -2             = 
+    32 evolution_stock[2,7]
+                                  -2            -2             = 
+    33 evolution_stock[2,8]
+                                  -1            -1             = 
+    34 evolution_stock[2,9]
+                                  -3            -3             = 
+    35 evolution_stock[2,10]
+                                  -1            -1             = 
+    36 evolution_stock[2,11]
+                                  -2            -2             = 
+    37 evolution_stock[2,12]
+                                  -1            -1             = 
+    38 evolution_stock[3,1]
+                                  -2            -2             = 
+    39 evolution_stock[3,2]
+                                  -3            -3             = 
+    40 evolution_stock[3,3]
+                                  -2            -2             = 
+    41 evolution_stock[3,4]
+                                  -1            -1             = 
+    42 evolution_stock[3,5]
+                                  -2            -2             = 
+    43 evolution_stock[3,6]
+                                  -2            -2             = 
+    44 evolution_stock[3,7]
+                                  -2            -2             = 
+    45 evolution_stock[3,8]
+                                  -2            -2             = 
+    46 evolution_stock[3,9]
+                                  -1            -1             = 
+    47 evolution_stock[3,10]
+                                  -2            -2             = 
+    48 evolution_stock[3,11]
+                                   0            -0             = 
+    49 evolution_stock[3,12]
+                                  -3            -3             = 
+    50 evolution_stock[4,1]
+                                  -5            -5             = 
+    51 evolution_stock[4,2]
+                                  -5            -5             = 
+    52 evolution_stock[4,3]
+                                  -4            -4             = 
+    53 evolution_stock[4,4]
+                                  -8            -8             = 
+    54 evolution_stock[4,5]
+                                  -5            -5             = 
+    55 evolution_stock[4,6]
+                                  -3            -3             = 
+    56 evolution_stock[4,7]
+                                  -2            -2             = 
+    57 evolution_stock[4,8]
+                                  -1            -1             = 
+    58 evolution_stock[4,9]
+                                  -5            -5             = 
+    59 evolution_stock[4,10]
+                                  -4            -4             = 
+    60 evolution_stock[4,11]
+                                  -2            -2             = 
+    61 evolution_stock[4,12]
+                                  -4            -4             = 
+    62 evolution_stock[5,1]
+                                  -7            -7             = 
+    63 evolution_stock[5,2]
+                                  -7            -7             = 
+    64 evolution_stock[5,3]
+                                  -5            -5             = 
+    65 evolution_stock[5,4]
+                                  -1            -1             = 
+    66 evolution_stock[5,5]
+                                  -1            -1             = 
+    67 evolution_stock[5,6]
+                                  -3            -3             = 
+    68 evolution_stock[5,7]
+                                  -7            -7             = 
+    69 evolution_stock[5,8]
+                                   0            -0             = 
+    70 evolution_stock[5,9]
+                                  -1            -1             = 
+    71 evolution_stock[5,10]
+                                  -2            -2             = 
+    72 evolution_stock[5,11]
+                                  -2            -2             = 
+    73 evolution_stock[5,12]
+                                  -3            -3             = 
+    74 evolution_stock[6,1]
+                                  -4            -4             = 
+    75 evolution_stock[6,2]
+                                   0            -0             = 
+    76 evolution_stock[6,3]
+                                  -2            -2             = 
+    77 evolution_stock[6,4]
+                                  -2            -2             = 
+    78 evolution_stock[6,5]
+                                  -2            -2             = 
+    79 evolution_stock[6,6]
+                                  -1            -1             = 
+    80 evolution_stock[6,7]
+                                  -1            -1             = 
+    81 evolution_stock[6,8]
+                                  -3            -3             = 
+    82 evolution_stock[6,9]
+                                  -1            -1             = 
+    83 evolution_stock[6,10]
+                                   0            -0             = 
+    84 evolution_stock[6,11]
+                                  -6            -6             = 
+    85 evolution_stock[6,12]
+                                  -3            -3             = 
+    86 evolution_stock[7,1]
+                                  -4            -4             = 
+    87 evolution_stock[7,2]
+                                   0            -0             = 
+    88 evolution_stock[7,3]
+                                  -1            -1             = 
+    89 evolution_stock[7,4]
+                                  -1            -1             = 
+    90 evolution_stock[7,5]
+                                  -4            -4             = 
+    91 evolution_stock[7,6]
+                                  -3            -3             = 
+    92 evolution_stock[7,7]
+                                   0            -0             = 
+    93 evolution_stock[7,8]
+                                  -1            -1             = 
+    94 evolution_stock[7,9]
+                                  -3            -3             = 
+    95 evolution_stock[7,10]
+                                  -5            -5             = 
+    96 evolution_stock[7,11]
+                                  -6            -6             = 
+    97 evolution_stock[7,12]
+                                  -2            -2             = 
+    98 evolution_stock[8,1]
+                                  -1            -1             = 
+    99 evolution_stock[8,2]
+                                  -1            -1             = 
+   100 evolution_stock[8,3]
+                                  -4            -4             = 
+   101 evolution_stock[8,4]
+                                  -3            -3             = 
+   102 evolution_stock[8,5]
+                                  -4            -4             = 
+   103 evolution_stock[8,6]
+                                  -2            -2             = 
+   104 evolution_stock[8,7]
+                                  -1            -1             = 
+   105 evolution_stock[8,8]
+                                  -1            -1             = 
+   106 evolution_stock[8,9]
+                                  -1            -1             = 
+   107 evolution_stock[8,10]
+                                  -1            -1             = 
+   108 evolution_stock[8,11]
+                                  -7            -7             = 
+   109 evolution_stock[8,12]
+                                  -5            -5             = 
+   110 evolution_stock[9,1]
+                                   0            -0             = 
+   111 evolution_stock[9,2]
+                                  -2            -2             = 
+   112 evolution_stock[9,3]
+                                  -3            -3             = 
+   113 evolution_stock[9,4]
+                                  -3            -3             = 
+   114 evolution_stock[9,5]
+                                  -5            -5             = 
+   115 evolution_stock[9,6]
+                                  -3            -3             = 
+   116 evolution_stock[9,7]
+                                   0            -0             = 
+   117 evolution_stock[9,8]
+                                  -3            -3             = 
+   118 evolution_stock[9,9]
+                                  -1            -1             = 
+   119 evolution_stock[9,10]
+                                  -2            -2             = 
+   120 evolution_stock[9,11]
+                                  -1            -1             = 
+   121 evolution_stock[9,12]
+                                  -7            -7             = 
+   122 evolution_stock[10,1]
+                                  -3            -3             = 
+   123 evolution_stock[10,2]
+                                  -1            -1             = 
+   124 evolution_stock[10,3]
+                                  -7            -7             = 
+   125 evolution_stock[10,4]
+                                  -2            -2             = 
+   126 evolution_stock[10,5]
+                                   0            -0             = 
+   127 evolution_stock[10,6]
+                                  -2            -2             = 
+   128 evolution_stock[10,7]
+                                  -1            -1             = 
+   129 evolution_stock[10,8]
+                                  -1            -1             = 
+   130 evolution_stock[10,9]
+                                  -2            -2             = 
+   131 evolution_stock[10,10]
+                                  -5            -5             = 
+   132 evolution_stock[10,11]
+                                  -4            -4             = 
+   133 evolution_stock[10,12]
+                                  -3            -3             = 
+   134 quantite_production[1]
+                                  23                          23 
+   135 quantite_production[2]
+                                  23                          23 
+   136 quantite_production[3]
+                                  23                          23 
+   137 quantite_production[4]
+                                  23                          23 
+   138 quantite_production[5]
+                                  23                          23 
+   139 quantite_production[6]
+                                  23                          23 
+   140 quantite_production[7]
+                                  23                          23 
+   141 quantite_production[8]
+                                  23                          23 
+   142 quantite_production[9]
+                                  23                          23 
+   143 quantite_production[10]
+                                  23                          23 
+   144 nombre_references[1]
+                                   2                           6 
+   145 nombre_references[2]
+                                   3                           6 
+   146 nombre_references[3]
+                                   4                           6 
+   147 nombre_references[4]
+                                   5                           6 
+   148 nombre_references[5]
+                                   6                           6 
+   149 nombre_references[6]
+                                   6                           6 
+   150 nombre_references[7]
+                                   6                           6 
+   151 nombre_references[8]
+                                   6                           6 
+   152 nombre_references[9]
+                                   6                           6 
+   153 nombre_references[10]
+                                   6                           6 
+   154 decision_production[1,1]
+                                   0                          -0 
+   155 decision_production[1,2]
+                                   0                          -0 
+   156 decision_production[1,3]
+                                 -21                          -0 
+   157 decision_production[1,4]
+                                 -18                          -0 
+   158 decision_production[1,5]
+                                 -16                          -0 
+   159 decision_production[1,6]
+                                 -19                          -0 
+   160 decision_production[1,7]
+                                 -18                          -0 
+   161 decision_production[1,8]
+                                   0                          -0 
+   162 decision_production[1,9]
+                                   0                          -0 
+   163 decision_production[1,10]
+                                 -20                          -0 
+   164 decision_production[2,1]
+                                   0                          -0 
+   165 decision_production[2,2]
+                                  -9                          -0 
+   166 decision_production[2,3]
+                                 -22                          -0 
+   167 decision_production[2,4]
+                                   0                          -0 
+   168 decision_production[2,5]
+                                   0                          -0 
+   169 decision_production[2,6]
+                                   0                          -0 
+   170 decision_production[2,7]
+                                   0                          -0 
+   171 decision_production[2,8]
+                                   0                          -0 
+   172 decision_production[2,9]
+                                   0                          -0 
+   173 decision_production[2,10]
+                                   0                          -0 
+   174 decision_production[3,1]
+                                   0                          -0 
+   175 decision_production[3,2]
+                                   0                          -0 
+   176 decision_production[3,3]
+                                  -9                          -0 
+   177 decision_production[3,4]
+                                   0                          -0 
+   178 decision_production[3,5]
+                                   0                          -0 
+   179 decision_production[3,6]
+                                   0                          -0 
+   180 decision_production[3,7]
+                                   0                          -0 
+   181 decision_production[3,8]
+                                 -15                          -0 
+   182 decision_production[3,9]
+                                   0                          -0 
+   183 decision_production[3,10]
+                                 -17                          -0 
+   184 decision_production[4,1]
+                                   0                          -0 
+   185 decision_production[4,2]
+                                   0                          -0 
+   186 decision_production[4,3]
+                                   0                          -0 
+   187 decision_production[4,4]
+                                 -16                          -0 
+   188 decision_production[4,5]
+                                 -22                          -0 
+   189 decision_production[4,6]
+                                 -21                          -0 
+   190 decision_production[4,7]
+                                 -22                          -0 
+   191 decision_production[4,8]
+                                 -20                          -0 
+   192 decision_production[4,9]
+                                 -20                          -0 
+   193 decision_production[4,10]
+                                 -21                          -0 
+   194 decision_production[5,1]
+                                   0                          -0 
+   195 decision_production[5,2]
+                                   0                          -0 
+   196 decision_production[5,3]
+                                   0                          -0 
+   197 decision_production[5,4]
+                                 -19                          -0 
+   198 decision_production[5,5]
+                                   0                          -0 
+   199 decision_production[5,6]
+                                 -21                          -0 
+   200 decision_production[5,7]
+                                 -19                          -0 
+   201 decision_production[5,8]
+                                 -19                          -0 
+   202 decision_production[5,9]
+                                 -18                          -0 
+   203 decision_production[5,10]
+                                   0                          -0 
+   204 decision_production[6,1]
+                                  -8                          -0 
+   205 decision_production[6,2]
+                                   0                          -0 
+   206 decision_production[6,3]
+                                   0                          -0 
+   207 decision_production[6,4]
+                                   0                          -0 
+   208 decision_production[6,5]
+                                   0                          -0 
+   209 decision_production[6,6]
+                                   0                          -0 
+   210 decision_production[6,7]
+                                   0                          -0 
+   211 decision_production[6,8]
+                                   0                          -0 
+   212 decision_production[6,9]
+                                   0                          -0 
+   213 decision_production[6,10]
+                                   0                          -0 
+   214 decision_production[7,1]
+                                   0                          -0 
+   215 decision_production[7,2]
+                                   0                          -0 
+   216 decision_production[7,3]
+                                   0                          -0 
+   217 decision_production[7,4]
+                                   0                          -0 
+   218 decision_production[7,5]
+                                 -15                          -0 
+   219 decision_production[7,6]
+                                   0                          -0 
+   220 decision_production[7,7]
+                                   0                          -0 
+   221 decision_production[7,8]
+                                 -21                          -0 
+   222 decision_production[7,9]
+                                   0                          -0 
+   223 decision_production[7,10]
+                                   0                          -0 
+   224 decision_production[8,1]
+                                   0                          -0 
+   225 decision_production[8,2]
+                                   0                          -0 
+   226 decision_production[8,3]
+                                   0                          -0 
+   227 decision_production[8,4]
+                                   0                          -0 
+   228 decision_production[8,5]
+                                   0                          -0 
+   229 decision_production[8,6]
+                                 -19                          -0 
+   230 decision_production[8,7]
+                                   0                          -0 
+   231 decision_production[8,8]
+                                 -21                          -0 
+   232 decision_production[8,9]
+                                 -20                          -0 
+   233 decision_production[8,10]
+                                   0                          -0 
+   234 decision_production[9,1]
+                                   0                          -0 
+   235 decision_production[9,2]
+                                 -20                          -0 
+   236 decision_production[9,3]
+                                 -17                          -0 
+   237 decision_production[9,4]
+                                   0                          -0 
+   238 decision_production[9,5]
+                                 -21                          -0 
+   239 decision_production[9,6]
+                                   0                          -0 
+   240 decision_production[9,7]
+                                 -19                          -0 
+   241 decision_production[9,8]
+                                   0                          -0 
+   242 decision_production[9,9]
+                                 -20                          -0 
+   243 decision_production[9,10]
+                                   0                          -0 
+   244 decision_production[10,1]
+                                   0                          -0 
+   245 decision_production[10,2]
+                                   0                          -0 
+   246 decision_production[10,3]
+                                   0                          -0 
+   247 decision_production[10,4]
+                                 -19                          -0 
+   248 decision_production[10,5]
+                                 -21                          -0 
+   249 decision_production[10,6]
+                                   0                          -0 
+   250 decision_production[10,7]
+                                 -17                          -0 
+   251 decision_production[10,8]
+                                   0                          -0 
+   252 decision_production[10,9]
+                                 -21                          -0 
+   253 decision_production[10,10]
+                                 -18                          -0 
+   254 decision_production[11,1]
+                                 -15                          -0 
+   255 decision_production[11,2]
+                                 -17                          -0 
+   256 decision_production[11,3]
+                                   0                          -0 
+   257 decision_production[11,4]
+                                   0                          -0 
+   258 decision_production[11,5]
+                                   0                          -0 
+   259 decision_production[11,6]
+                                 -15                          -0 
+   260 decision_production[11,7]
+                                   0                          -0 
+   261 decision_production[11,8]
+                                   0                          -0 
+   262 decision_production[11,9]
+                                   0                          -0 
+   263 decision_production[11,10]
+                                 -19                          -0 
+   264 decision_production[12,1]
+                                   0                          -0 
+   265 decision_production[12,2]
+                                   0                          -0 
+   266 decision_production[12,3]
+                                   0                          -0 
+   267 decision_production[12,4]
+                                 -20                          -0 
+   268 decision_production[12,5]
+                                 -20                          -0 
+   269 decision_production[12,6]
+                                 -20                          -0 
+   270 decision_production[12,7]
+                                 -20                          -0 
+   271 decision_production[12,8]
+                                 -19                          -0 
+   272 decision_production[12,9]
+                                 -16                          -0 
+   273 decision_production[12,10]
+                                 -20                          -0 
+   274 quantites_positives[1,1]
+                                   0            -0               
+   275 quantites_positives[1,2]
+                                   0            -0               
+   276 quantites_positives[1,3]
+                                   2            -0               
+   277 quantites_positives[1,4]
+                                   5            -0               
+   278 quantites_positives[1,5]
+                                   7            -0               
+   279 quantites_positives[1,6]
+                                   4            -0               
+   280 quantites_positives[1,7]
+                                   5            -0               
+   281 quantites_positives[1,8]
+                                   0            -0               
+   282 quantites_positives[1,9]
+                                   0            -0               
+   283 quantites_positives[1,10]
+                                   3            -0               
+   284 quantites_positives[2,1]
+                                   0            -0               
+   285 quantites_positives[2,2]
+                                  14            -0               
+   286 quantites_positives[2,3]
+                                   1            -0               
+   287 quantites_positives[2,4]
+                                   0            -0               
+   288 quantites_positives[2,5]
+                                   0            -0               
+   289 quantites_positives[2,6]
+                                   0            -0               
+   290 quantites_positives[2,7]
+                                   0            -0               
+   291 quantites_positives[2,8]
+                                   0            -0               
+   292 quantites_positives[2,9]
+                                   0            -0               
+   293 quantites_positives[2,10]
+                                   0            -0               
+   294 quantites_positives[3,1]
+                                   0            -0               
+   295 quantites_positives[3,2]
+                                   0            -0               
+   296 quantites_positives[3,3]
+                                  14            -0               
+   297 quantites_positives[3,4]
+                                   0            -0               
+   298 quantites_positives[3,5]
+                                   0            -0               
+   299 quantites_positives[3,6]
+                                   0            -0               
+   300 quantites_positives[3,7]
+                                   0            -0               
+   301 quantites_positives[3,8]
+                                   8            -0               
+   302 quantites_positives[3,9]
+                                   0            -0               
+   303 quantites_positives[3,10]
+                                   6            -0               
+   304 quantites_positives[4,1]
+                                   0            -0               
+   305 quantites_positives[4,2]
+                                   0            -0               
+   306 quantites_positives[4,3]
+                                   0            -0               
+   307 quantites_positives[4,4]
+                                   7            -0               
+   308 quantites_positives[4,5]
+                                   1            -0               
+   309 quantites_positives[4,6]
+                                   2            -0               
+   310 quantites_positives[4,7]
+                                   1            -0               
+   311 quantites_positives[4,8]
+                                   3            -0               
+   312 quantites_positives[4,9]
+                                   3            -0               
+   313 quantites_positives[4,10]
+                                   2            -0               
+   314 quantites_positives[5,1]
+                                   0            -0               
+   315 quantites_positives[5,2]
+                                   0            -0               
+   316 quantites_positives[5,3]
+                                   0            -0               
+   317 quantites_positives[5,4]
+                                   4            -0               
+   318 quantites_positives[5,5]
+                                   0            -0               
+   319 quantites_positives[5,6]
+                                   2            -0               
+   320 quantites_positives[5,7]
+                                   4            -0               
+   321 quantites_positives[5,8]
+                                   4            -0               
+   322 quantites_positives[5,9]
+                                   5            -0               
+   323 quantites_positives[5,10]
+                                   0            -0               
+   324 quantites_positives[6,1]
+                                  15            -0               
+   325 quantites_positives[6,2]
+                                   0            -0               
+   326 quantites_positives[6,3]
+                                   0            -0               
+   327 quantites_positives[6,4]
+                                   0            -0               
+   328 quantites_positives[6,5]
+                                   0            -0               
+   329 quantites_positives[6,6]
+                                   0            -0               
+   330 quantites_positives[6,7]
+                                   0            -0               
+   331 quantites_positives[6,8]
+                                   0            -0               
+   332 quantites_positives[6,9]
+                                   0            -0               
+   333 quantites_positives[6,10]
+                                   0            -0               
+   334 quantites_positives[7,1]
+                                   0            -0               
+   335 quantites_positives[7,2]
+                                   0            -0               
+   336 quantites_positives[7,3]
+                                   0            -0               
+   337 quantites_positives[7,4]
+                                   0            -0               
+   338 quantites_positives[7,5]
+                                   8            -0               
+   339 quantites_positives[7,6]
+                                   0            -0               
+   340 quantites_positives[7,7]
+                                   0            -0               
+   341 quantites_positives[7,8]
+                                   2            -0               
+   342 quantites_positives[7,9]
+                                   0            -0               
+   343 quantites_positives[7,10]
+                                   0            -0               
+   344 quantites_positives[8,1]
+                                   0            -0               
+   345 quantites_positives[8,2]
+                                   0            -0               
+   346 quantites_positives[8,3]
+                                   0            -0               
+   347 quantites_positives[8,4]
+                                   0            -0               
+   348 quantites_positives[8,5]
+                                   0            -0               
+   349 quantites_positives[8,6]
+                                   4            -0               
+   350 quantites_positives[8,7]
+                                   0            -0               
+   351 quantites_positives[8,8]
+                                   2            -0               
+   352 quantites_positives[8,9]
+                                   3            -0               
+   353 quantites_positives[8,10]
+                                   0            -0               
+   354 quantites_positives[9,1]
+                                   0            -0               
+   355 quantites_positives[9,2]
+                                   3            -0               
+   356 quantites_positives[9,3]
+                                   6            -0               
+   357 quantites_positives[9,4]
+                                   0            -0               
+   358 quantites_positives[9,5]
+                                   2            -0               
+   359 quantites_positives[9,6]
+                                   0            -0               
+   360 quantites_positives[9,7]
+                                   4            -0               
+   361 quantites_positives[9,8]
+                                   0            -0               
+   362 quantites_positives[9,9]
+                                   3            -0               
+   363 quantites_positives[9,10]
+                                   0            -0               
+   364 quantites_positives[10,1]
+                                   0            -0               
+   365 quantites_positives[10,2]
+                                   0            -0               
+   366 quantites_positives[10,3]
+                                   0            -0               
+   367 quantites_positives[10,4]
+                                   4            -0               
+   368 quantites_positives[10,5]
+                                   2            -0               
+   369 quantites_positives[10,6]
+                                   0            -0               
+   370 quantites_positives[10,7]
+                                   6            -0               
+   371 quantites_positives[10,8]
+                                   0            -0               
+   372 quantites_positives[10,9]
+                                   2            -0               
+   373 quantites_positives[10,10]
+                                   5            -0               
+   374 quantites_positives[11,1]
+                                   8            -0               
+   375 quantites_positives[11,2]
+                                   6            -0               
+   376 quantites_positives[11,3]
+                                   0            -0               
+   377 quantites_positives[11,4]
+                                   0            -0               
+   378 quantites_positives[11,5]
+                                   0            -0               
+   379 quantites_positives[11,6]
+                                   8            -0               
+   380 quantites_positives[11,7]
+                                   0            -0               
+   381 quantites_positives[11,8]
+                                   0            -0               
+   382 quantites_positives[11,9]
+                                   0            -0               
+   383 quantites_positives[11,10]
+                                   4            -0               
+   384 quantites_positives[12,1]
+                                   0            -0               
+   385 quantites_positives[12,2]
+                                   0            -0               
+   386 quantites_positives[12,3]
+                                   0            -0               
+   387 quantites_positives[12,4]
+                                   3            -0               
+   388 quantites_positives[12,5]
+                                   3            -0               
+   389 quantites_positives[12,6]
+                                   3            -0               
+   390 quantites_positives[12,7]
+                                   3            -0               
+   391 quantites_positives[12,8]
+                                   4            -0               
+   392 quantites_positives[12,9]
+                                   7            -0               
+   393 quantites_positives[12,10]
+                                   3            -0               
+   394 stocks_positifs[1,1]
+                                   4            -0               
+   395 stocks_positifs[1,2]
+                                   0            -0               
+   396 stocks_positifs[1,3]
+                                   0            -0               
+   397 stocks_positifs[1,4]
+                                   0            -0               
+   398 stocks_positifs[1,5]
+                                   0            -0               
+   399 stocks_positifs[1,6]
+                                   0            -0               
+   400 stocks_positifs[1,7]
+                                   1            -0               
+   401 stocks_positifs[1,8]
+                                   0            -0               
+   402 stocks_positifs[1,9]
+                                   0            -0               
+   403 stocks_positifs[1,10]
+                                   0            -0               
+   404 stocks_positifs[2,1]
+                                   5            -0               
+   405 stocks_positifs[2,2]
+                                  18            -0               
+   406 stocks_positifs[2,3]
+                                  16            -0               
+   407 stocks_positifs[2,4]
+                                  11            -0               
+   408 stocks_positifs[2,5]
+                                   4            -0               
+   409 stocks_positifs[2,6]
+                                   4            -0               
+   410 stocks_positifs[2,7]
+                                   4            -0               
+   411 stocks_positifs[2,8]
+                                   3            -0               
+   412 stocks_positifs[2,9]
+                                   1            -0               
+   413 stocks_positifs[2,10]
+                                   0            -0               
+   414 stocks_positifs[3,1]
+                                   2            -0               
+   415 stocks_positifs[3,2]
+                                   0            -0               
+   416 stocks_positifs[3,3]
+                                  12            -0               
+   417 stocks_positifs[3,4]
+                                   8            -0               
+   418 stocks_positifs[3,5]
+                                   3            -0               
+   419 stocks_positifs[3,6]
+                                   1            -0               
+   420 stocks_positifs[3,7]
+                                   0            -0               
+   421 stocks_positifs[3,8]
+                                   4            -0               
+   422 stocks_positifs[3,9]
+                                   1            -0               
+   423 stocks_positifs[3,10]
+                                   0            -0               
+   424 stocks_positifs[4,1]
+                                   8            -0               
+   425 stocks_positifs[4,2]
+                                   2            -0               
+   426 stocks_positifs[4,3]
+                                   1            -0               
+   427 stocks_positifs[4,4]
+                                   0            -0               
+   428 stocks_positifs[4,5]
+                                   0            -0               
+   429 stocks_positifs[4,6]
+                                   0            -0               
+   430 stocks_positifs[4,7]
+                                   0            -0               
+   431 stocks_positifs[4,8]
+                                   0            -0               
+   432 stocks_positifs[4,9]
+                                   0            -0               
+   433 stocks_positifs[4,10]
+                                   0            -0               
+   434 stocks_positifs[5,1]
+                                   5            -0               
+   435 stocks_positifs[5,2]
+                                   4            -0               
+   436 stocks_positifs[5,3]
+                                   2            -0               
+   437 stocks_positifs[5,4]
+                                   1            -0               
+   438 stocks_positifs[5,5]
+                                   0            -0               
+   439 stocks_positifs[5,6]
+                                   0            -0               
+   440 stocks_positifs[5,7]
+                                   0            -0               
+   441 stocks_positifs[5,8]
+                                   0            -0               
+   442 stocks_positifs[5,9]
+                                   0            -0               
+   443 stocks_positifs[5,10]
+                                   0            -0               
+   444 stocks_positifs[6,1]
+                                  21            -0               
+   445 stocks_positifs[6,2]
+                                  19            -0               
+   446 stocks_positifs[6,3]
+                                  17            -0               
+   447 stocks_positifs[6,4]
+                                  14            -0               
+   448 stocks_positifs[6,5]
+                                  11            -0               
+   449 stocks_positifs[6,6]
+                                  10            -0               
+   450 stocks_positifs[6,7]
+                                   7            -0               
+   451 stocks_positifs[6,8]
+                                   5            -0               
+   452 stocks_positifs[6,9]
+                                   2            -0               
+   453 stocks_positifs[6,10]
+                                   0            -0               
+   454 stocks_positifs[7,1]
+                                   6            -0               
+   455 stocks_positifs[7,2]
+                                   4            -0               
+   456 stocks_positifs[7,3]
+                                   2            -0               
+   457 stocks_positifs[7,4]
+                                   0            -0               
+   458 stocks_positifs[7,5]
+                                   1            -0               
+   459 stocks_positifs[7,6]
+                                   0            -0               
+   460 stocks_positifs[7,7]
+                                   0            -0               
+   461 stocks_positifs[7,8]
+                                   1            -0               
+   462 stocks_positifs[7,9]
+                                   1            -0               
+   463 stocks_positifs[7,10]
+                                   0            -0               
+   464 stocks_positifs[8,1]
+                                   4            -0               
+   465 stocks_positifs[8,2]
+                                   3            -0               
+   466 stocks_positifs[8,3]
+                                   1            -0               
+   467 stocks_positifs[8,4]
+                                   0            -0               
+   468 stocks_positifs[8,5]
+                                   0            -0               
+   469 stocks_positifs[8,6]
+                                   1            -0               
+   470 stocks_positifs[8,7]
+                                   0            -0               
+   471 stocks_positifs[8,8]
+                                   1            -0               
+   472 stocks_positifs[8,9]
+                                   1            -0               
+   473 stocks_positifs[8,10]
+                                   0            -0               
+   474 stocks_positifs[9,1]
+                                   0            -0               
+   475 stocks_positifs[9,2]
+                                   0            -0               
+   476 stocks_positifs[9,3]
+                                   5            -0               
+   477 stocks_positifs[9,4]
+                                   0            -0               
+   478 stocks_positifs[9,5]
+                                   1            -0               
+   479 stocks_positifs[9,6]
+                                   0            -0               
+   480 stocks_positifs[9,7]
+                                   1            -0               
+   481 stocks_positifs[9,8]
+                                   0            -0               
+   482 stocks_positifs[9,9]
+                                   2            -0               
+   483 stocks_positifs[9,10]
+                                   0            -0               
+   484 stocks_positifs[10,1]
+                                   3            -0               
+   485 stocks_positifs[10,2]
+                                   2            -0               
+   486 stocks_positifs[10,3]
+                                   0            -0               
+   487 stocks_positifs[10,4]
+                                   0            -0               
+   488 stocks_positifs[10,5]
+                                   0            -0               
+   489 stocks_positifs[10,6]
+                                   0            -0               
+   490 stocks_positifs[10,7]
+                                   1            -0               
+   491 stocks_positifs[10,8]
+                                   0            -0               
+   492 stocks_positifs[10,9]
+                                   0            -0               
+   493 stocks_positifs[10,10]
+                                   0            -0               
+   494 stocks_positifs[11,1]
+                                  12            -0               
+   495 stocks_positifs[11,2]
+                                  16            -0               
+   496 stocks_positifs[11,3]
+                                  16            -0               
+   497 stocks_positifs[11,4]
+                                  14            -0               
+   498 stocks_positifs[11,5]
+                                  12            -0               
+   499 stocks_positifs[11,6]
+                                  14            -0               
+   500 stocks_positifs[11,7]
+                                   8            -0               
+   501 stocks_positifs[11,8]
+                                   1            -0               
+   502 stocks_positifs[11,9]
+                                   0            -0               
+   503 stocks_positifs[11,10]
+                                   0            -0               
+   504 stocks_positifs[12,1]
+                                   5            -0               
+   505 stocks_positifs[12,2]
+                                   4            -0               
+   506 stocks_positifs[12,3]
+                                   1            -0               
+   507 stocks_positifs[12,4]
+                                   0            -0               
+   508 stocks_positifs[12,5]
+                                   0            -0               
+   509 stocks_positifs[12,6]
+                                   0            -0               
+   510 stocks_positifs[12,7]
+                                   1            -0               
+   511 stocks_positifs[12,8]
+                                   0            -0               
+   512 stocks_positifs[12,9]
+                                   0            -0               
+   513 stocks_positifs[12,10]
+                                   0            -0               
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 x[1,1]                      0                             
+     2 x[1,2]                      0                             
+     3 x[1,3]                      0                             
+     4 x[1,4]                      0                             
+     5 x[1,5]                      0                             
+     6 x[1,6]                     15                             
+     7 x[1,7]                      0                             
+     8 x[1,8]                      0                             
+     9 x[1,9]                      0                             
+    10 x[1,10]                     0                             
+    11 x[1,11]                     8                             
+    12 x[1,12]                     0                             
+    13 x[2,1]                      0                             
+    14 x[2,2]                     14                             
+    15 x[2,3]                      0                             
+    16 x[2,4]                      0                             
+    17 x[2,5]                      0                             
+    18 x[2,6]                      0                             
+    19 x[2,7]                      0                             
+    20 x[2,8]                      0                             
+    21 x[2,9]                      3                             
+    22 x[2,10]                     0                             
+    23 x[2,11]                     6                             
+    24 x[2,12]                     0                             
+    25 x[3,1]                      2                             
+    26 x[3,2]                      1                             
+    27 x[3,3]                     14                             
+    28 x[3,4]                      0                             
+    29 x[3,5]                      0                             
+    30 x[3,6]                      0                             
+    31 x[3,7]                      0                             
+    32 x[3,8]                      0                             
+    33 x[3,9]                      6                             
+    34 x[3,10]                     0                             
+    35 x[3,11]                     0                             
+    36 x[3,12]                     0                             
+    37 x[4,1]                      5                             
+    38 x[4,2]                      0                             
+    39 x[4,3]                      0                             
+    40 x[4,4]                      7                             
+    41 x[4,5]                      4                             
+    42 x[4,6]                      0                             
+    43 x[4,7]                      0                             
+    44 x[4,8]                      0                             
+    45 x[4,9]                      0                             
+    46 x[4,10]                     4                             
+    47 x[4,11]                     0                             
+    48 x[4,12]                     3                             
+    49 x[5,1]                      7                             
+    50 x[5,2]                      0                             
+    51 x[5,3]                      0                             
+    52 x[5,4]                      1                             
+    53 x[5,5]                      0                             
+    54 x[5,6]                      0                             
+    55 x[5,7]                      8                             
+    56 x[5,8]                      0                             
+    57 x[5,9]                      2                             
+    58 x[5,10]                     2                             
+    59 x[5,11]                     0                             
+    60 x[5,12]                     3                             
+    61 x[6,1]                      4                             
+    62 x[6,2]                      0                             
+    63 x[6,3]                      0                             
+    64 x[6,4]                      2                             
+    65 x[6,5]                      2                             
+    66 x[6,6]                      0                             
+    67 x[6,7]                      0                             
+    68 x[6,8]                      4                             
+    69 x[6,9]                      0                             
+    70 x[6,10]                     0                             
+    71 x[6,11]                     8                             
+    72 x[6,12]                     3                             
+    73 x[7,1]                      5                             
+    74 x[7,2]                      0                             
+    75 x[7,3]                      0                             
+    76 x[7,4]                      1                             
+    77 x[7,5]                      4                             
+    78 x[7,6]                      0                             
+    79 x[7,7]                      0                             
+    80 x[7,8]                      0                             
+    81 x[7,9]                      4                             
+    82 x[7,10]                     6                             
+    83 x[7,11]                     0                             
+    84 x[7,12]                     3                             
+    85 x[8,1]                      0                             
+    86 x[8,2]                      0                             
+    87 x[8,3]                      8                             
+    88 x[8,4]                      3                             
+    89 x[8,5]                      4                             
+    90 x[8,6]                      0                             
+    91 x[8,7]                      2                             
+    92 x[8,8]                      2                             
+    93 x[8,9]                      0                             
+    94 x[8,10]                     0                             
+    95 x[8,11]                     0                             
+    96 x[8,12]                     4                             
+    97 x[9,1]                      0                             
+    98 x[9,2]                      0                             
+    99 x[9,3]                      0                             
+   100 x[9,4]                      3                             
+   101 x[9,5]                      5                             
+   102 x[9,6]                      0                             
+   103 x[9,7]                      0                             
+   104 x[9,8]                      3                             
+   105 x[9,9]                      3                             
+   106 x[9,10]                     2                             
+   107 x[9,11]                     0                             
+   108 x[9,12]                     7                             
+   109 x[10,1]                     3                             
+   110 x[10,2]                     0                             
+   111 x[10,3]                     6                             
+   112 x[10,4]                     2                             
+   113 x[10,5]                     0                             
+   114 x[10,6]                     0                             
+   115 x[10,7]                     0                             
+   116 x[10,8]                     0                             
+   117 x[10,9]                     0                             
+   118 x[10,10]                    5                             
+   119 x[10,11]                    4                             
+   120 x[10,12]                    3                             
+   121 p[1,1]       *              0             0             1 
+   122 p[1,2]       *              0             0             1 
+   123 p[1,3]       *              0             0             1 
+   124 p[1,4]       *              0             0             1 
+   125 p[1,5]       *              0             0             1 
+   126 p[1,6]       *              1             0             1 
+   127 p[1,7]       *              0             0             1 
+   128 p[1,8]       *              0             0             1 
+   129 p[1,9]       *              0             0             1 
+   130 p[1,10]      *              0             0             1 
+   131 p[1,11]      *              1             0             1 
+   132 p[1,12]      *              0             0             1 
+   133 p[2,1]       *              0             0             1 
+   134 p[2,2]       *              1             0             1 
+   135 p[2,3]       *              0             0             1 
+   136 p[2,4]       *              0             0             1 
+   137 p[2,5]       *              0             0             1 
+   138 p[2,6]       *              0             0             1 
+   139 p[2,7]       *              0             0             1 
+   140 p[2,8]       *              0             0             1 
+   141 p[2,9]       *              1             0             1 
+   142 p[2,10]      *              0             0             1 
+   143 p[2,11]      *              1             0             1 
+   144 p[2,12]      *              0             0             1 
+   145 p[3,1]       *              1             0             1 
+   146 p[3,2]       *              1             0             1 
+   147 p[3,3]       *              1             0             1 
+   148 p[3,4]       *              0             0             1 
+   149 p[3,5]       *              0             0             1 
+   150 p[3,6]       *              0             0             1 
+   151 p[3,7]       *              0             0             1 
+   152 p[3,8]       *              0             0             1 
+   153 p[3,9]       *              1             0             1 
+   154 p[3,10]      *              0             0             1 
+   155 p[3,11]      *              0             0             1 
+   156 p[3,12]      *              0             0             1 
+   157 p[4,1]       *              1             0             1 
+   158 p[4,2]       *              0             0             1 
+   159 p[4,3]       *              0             0             1 
+   160 p[4,4]       *              1             0             1 
+   161 p[4,5]       *              1             0             1 
+   162 p[4,6]       *              0             0             1 
+   163 p[4,7]       *              0             0             1 
+   164 p[4,8]       *              0             0             1 
+   165 p[4,9]       *              0             0             1 
+   166 p[4,10]      *              1             0             1 
+   167 p[4,11]      *              0             0             1 
+   168 p[4,12]      *              1             0             1 
+   169 p[5,1]       *              1             0             1 
+   170 p[5,2]       *              0             0             1 
+   171 p[5,3]       *              0             0             1 
+   172 p[5,4]       *              1             0             1 
+   173 p[5,5]       *              0             0             1 
+   174 p[5,6]       *              0             0             1 
+   175 p[5,7]       *              1             0             1 
+   176 p[5,8]       *              0             0             1 
+   177 p[5,9]       *              1             0             1 
+   178 p[5,10]      *              1             0             1 
+   179 p[5,11]      *              0             0             1 
+   180 p[5,12]      *              1             0             1 
+   181 p[6,1]       *              1             0             1 
+   182 p[6,2]       *              0             0             1 
+   183 p[6,3]       *              0             0             1 
+   184 p[6,4]       *              1             0             1 
+   185 p[6,5]       *              1             0             1 
+   186 p[6,6]       *              0             0             1 
+   187 p[6,7]       *              0             0             1 
+   188 p[6,8]       *              1             0             1 
+   189 p[6,9]       *              0             0             1 
+   190 p[6,10]      *              0             0             1 
+   191 p[6,11]      *              1             0             1 
+   192 p[6,12]      *              1             0             1 
+   193 p[7,1]       *              1             0             1 
+   194 p[7,2]       *              0             0             1 
+   195 p[7,3]       *              0             0             1 
+   196 p[7,4]       *              1             0             1 
+   197 p[7,5]       *              1             0             1 
+   198 p[7,6]       *              0             0             1 
+   199 p[7,7]       *              0             0             1 
+   200 p[7,8]       *              0             0             1 
+   201 p[7,9]       *              1             0             1 
+   202 p[7,10]      *              1             0             1 
+   203 p[7,11]      *              0             0             1 
+   204 p[7,12]      *              1             0             1 
+   205 p[8,1]       *              0             0             1 
+   206 p[8,2]       *              0             0             1 
+   207 p[8,3]       *              1             0             1 
+   208 p[8,4]       *              1             0             1 
+   209 p[8,5]       *              1             0             1 
+   210 p[8,6]       *              0             0             1 
+   211 p[8,7]       *              1             0             1 
+   212 p[8,8]       *              1             0             1 
+   213 p[8,9]       *              0             0             1 
+   214 p[8,10]      *              0             0             1 
+   215 p[8,11]      *              0             0             1 
+   216 p[8,12]      *              1             0             1 
+   217 p[9,1]       *              0             0             1 
+   218 p[9,2]       *              0             0             1 
+   219 p[9,3]       *              0             0             1 
+   220 p[9,4]       *              1             0             1 
+   221 p[9,5]       *              1             0             1 
+   222 p[9,6]       *              0             0             1 
+   223 p[9,7]       *              0             0             1 
+   224 p[9,8]       *              1             0             1 
+   225 p[9,9]       *              1             0             1 
+   226 p[9,10]      *              1             0             1 
+   227 p[9,11]      *              0             0             1 
+   228 p[9,12]      *              1             0             1 
+   229 p[10,1]      *              1             0             1 
+   230 p[10,2]      *              0             0             1 
+   231 p[10,3]      *              1             0             1 
+   232 p[10,4]      *              1             0             1 
+   233 p[10,5]      *              0             0             1 
+   234 p[10,6]      *              0             0             1 
+   235 p[10,7]      *              0             0             1 
+   236 p[10,8]      *              0             0             1 
+   237 p[10,9]      *              0             0             1 
+   238 p[10,10]     *              1             0             1 
+   239 p[10,11]     *              1             0             1 
+   240 p[10,12]     *              1             0             1 
+   241 s[1,1]                      4                             
+   242 s[1,2]                      5                             
+   243 s[1,3]                      2                             
+   244 s[1,4]                      8                             
+   245 s[1,5]                      5                             
+   246 s[1,6]                     21                             
+   247 s[1,7]                      6                             
+   248 s[1,8]                      4                             
+   249 s[1,9]                      0                             
+   250 s[1,10]                     3                             
+   251 s[1,11]                    12                             
+   252 s[1,12]                     5                             
+   253 s[2,1]                      0                             
+   254 s[2,2]                     18                             
+   255 s[2,3]                      0                             
+   256 s[2,4]                      2                             
+   257 s[2,5]                      4                             
+   258 s[2,6]                     19                             
+   259 s[2,7]                      4                             
+   260 s[2,8]                      3                             
+   261 s[2,9]                      0                             
+   262 s[2,10]                     2                             
+   263 s[2,11]                    16                             
+   264 s[2,12]                     4                             
+   265 s[3,1]                      0                             
+   266 s[3,2]                     16                             
+   267 s[3,3]                     12                             
+   268 s[3,4]                      1                             
+   269 s[3,5]                      2                             
+   270 s[3,6]                     17                             
+   271 s[3,7]                      2                             
+   272 s[3,8]                      1                             
+   273 s[3,9]                      5                             
+   274 s[3,10]                     0                             
+   275 s[3,11]                    16                             
+   276 s[3,12]                     1                             
+   277 s[4,1]                      0                             
+   278 s[4,2]                     11                             
+   279 s[4,3]                      8                             
+   280 s[4,4]                      0                             
+   281 s[4,5]                      1                             
+   282 s[4,6]                     14                             
+   283 s[4,7]                      0                             
+   284 s[4,8]                      0                             
+   285 s[4,9]                      0                             
+   286 s[4,10]                     0                             
+   287 s[4,11]                    14                             
+   288 s[4,12]                     0                             
+   289 s[5,1]                      0                             
+   290 s[5,2]                      4                             
+   291 s[5,3]                      3                             
+   292 s[5,4]                      0                             
+   293 s[5,5]                      0                             
+   294 s[5,6]                     11                             
+   295 s[5,7]                      1                             
+   296 s[5,8]                      0                             
+   297 s[5,9]                      1                             
+   298 s[5,10]                     0                             
+   299 s[5,11]                    12                             
+   300 s[5,12]                     0                             
+   301 s[6,1]                      0                             
+   302 s[6,2]                      4                             
+   303 s[6,3]                      1                             
+   304 s[6,4]                      0                             
+   305 s[6,5]                      0                             
+   306 s[6,6]                     10                             
+   307 s[6,7]                      0                             
+   308 s[6,8]                      1                             
+   309 s[6,9]                      0                             
+   310 s[6,10]                     0                             
+   311 s[6,11]                    14                             
+   312 s[6,12]                     0                             
+   313 s[7,1]                      1                             
+   314 s[7,2]                      4                             
+   315 s[7,3]                      0                             
+   316 s[7,4]                      0                             
+   317 s[7,5]                      0                             
+   318 s[7,6]                      7                             
+   319 s[7,7]                      0                             
+   320 s[7,8]                      0                             
+   321 s[7,9]                      1                             
+   322 s[7,10]                     1                             
+   323 s[7,11]                     8                             
+   324 s[7,12]                     1                             
+   325 s[8,1]                      0                             
+   326 s[8,2]                      3                             
+   327 s[8,3]                      4                             
+   328 s[8,4]                      0                             
+   329 s[8,5]                      0                             
+   330 s[8,6]                      5                             
+   331 s[8,7]                      1                             
+   332 s[8,8]                      1                             
+   333 s[8,9]                      0                             
+   334 s[8,10]                     0                             
+   335 s[8,11]                     1                             
+   336 s[8,12]                     0                             
+   337 s[9,1]                      0                             
+   338 s[9,2]                      1                             
+   339 s[9,3]                      1                             
+   340 s[9,4]                      0                             
+   341 s[9,5]                      0                             
+   342 s[9,6]                      2                             
+   343 s[9,7]                      1                             
+   344 s[9,8]                      1                             
+   345 s[9,9]                      2                             
+   346 s[9,10]                     0                             
+   347 s[9,11]                     0                             
+   348 s[9,12]                     0                             
+   349 s[10,1]                     0                             
+   350 s[10,2]                     0                             
+   351 s[10,3]                     0                             
+   352 s[10,4]                     0                             
+   353 s[10,5]                     0                             
+   354 s[10,6]                     0                             
+   355 s[10,7]                     0                             
+   356 s[10,8]                     0                             
+   357 s[10,9]                     0                             
+   358 s[10,10]                    0                             
+   359 s[10,11]                    0                             
+   360 s[10,12]                    0                             
+   361 s[0,1]                      8                             
+   362 s[0,2]                      8                             
+   363 s[0,3]                      6                             
+   364 s[0,4]                      9                             
+   365 s[0,5]                      9                             
+   366 s[0,6]                      6                             
+   367 s[0,7]                      8                             
+   368 s[0,8]                      6                             
+   369 s[0,9]                      6                             
+   370 s[0,10]                     8                             
+   371 s[0,11]                     6                             
+   372 s[0,12]                     7                             
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output
