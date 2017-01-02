@@ -170,4 +170,47 @@ Notre fonction objectif est donc simplement $f_{value}$ qu'on cherche à maximis
 
 \end{itemize}
 
+En lançant plusieurs fois notre programme linéaire, celui-ci propose plusieurs grilles horaires, comme par exemple :
+
+\[Grille \  horaire_1 =
+\begin{matrix}
+H1 & H2 & H3 & H4 & E1 & E2 & P1 \\
+1 & 224 & 447 & 670 & 1192 & 1415 & 1578 \\
+\ \\
+H5 & H6 & H7 & H8 & E3 & E4 & P2 \\
+1801 & 2024 & 2247 & 2470 & 2993 & 3215 & 3378
+\end{matrix}
+\]
+
+\[Grille \  horaire_2 =
+\begin{matrix}
+H1 & H2 & E1 & E2 & P1 & H3 & H4 \\
+1 & 224 & 747 & 970 & 1132 & 1355 & 1578 \\
+\ \\
+H5 & H6 & H7 & H8 & E3 & E4 & P2 \\
+1801 & 2024 & 2547 & 2770 & 2932 & 3155 & 3378
+\end{matrix}
+\]
+
+
+Qui ont toutes une flexibilité de 42 secondes. Comme les grilles horaires correspondent à une solution optimale d'un programme linéaire en nombres entiers, la flexibilité trouvée est donc optimale.
+
+\subsection{2. Le plus de navettes HGV possibles}
+On augmente h dans \emph{Q2\_data\_1.dat}. À partir de $h=12$, le solveur indique qu'aucune solution réalisable n'existe : $h=11$ est donc le maximum de navettes HGV qu'on puisse faire passer pour $e=4$ et $p=2$.
+
+Pour des grandes valeurs de $h$, le programme met beaucoup de temps à calculer, c'est pourquoi nous posons la flexibilité à zéro : on souhaite simplement trouver une solution réalisable, pas nécessairement la grille avec la flexibilité la plus grande possible. \\
+Pour $h=11$, on peut proposer la grille horaire suivante :
+
+
+\[Grille \  horaire_2 =
+\begin{matrix}
+H1 & H2 & H3 & H4 & E1 & E2 & P1 & P2 \\
+1 & 181 & 361 & 541 & 1021 & 1201 & 1321 & 1441\\
+\ \\
+H5 & H6 & H7 & H8 & H9 & E3 & E4 & H10 & H11 \\
+1621 & 1801 & 1981 & 2161 & 2341 & 2821 & 3001 & 3241 & 3421
+\end{matrix}
+\]
+
+
 \end{document}
