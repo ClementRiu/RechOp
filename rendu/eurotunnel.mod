@@ -67,7 +67,7 @@ for {j in 1..3} {
     }
     printf "\n";
 }
-printf "Grille horaire (T) :\n";
+printf "T :\n";
 for {j in 1..3} {
     printf "   ";
     for {i in 1..n} {
@@ -75,7 +75,7 @@ for {j in 1..3} {
     }
     printf "\n";
 }
-printf "Grille horaire (E) :\n";
+printf "E :\n";
 for {j in 1..n} {
     printf "   ";
     for {i in 1..n} {

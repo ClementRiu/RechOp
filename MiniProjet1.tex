@@ -1,6 +1,6 @@
 \documentclass{rapport}
 
-\title{Rapport du miniprojet 1 de \textsc{Recherche Opérationnelle}}
+\title{Projet 1 - Problème de production et Eurotunnel \\ \textsc{Recherche Opérationnelle}}
 
 \begin{document}
 
@@ -23,8 +23,8 @@ Nos contraintes sont les suivantes : \\
 \begin{itemize}
 \item \emph{Contraintes de positivité} : À chaque semaine et pour chaque référence, le stock doit être positif (ou nul).  De même, on s'interdit de détruire du stock : on doit donc avoir une production positive (ou nulle) pour chaque référence. On fixe donc $$\forall i \in T; \forall r \in \mathcal{R}; s_{i, r} \in \R^+$$ $$\forall i \in T; \forall r \in \mathcal{R}; x_{i, r} \in \R^+$$
 
-\item À chaque nouvelle semaine, on actualise le stock de la nouvelle semaine avec le stock de la semaine précédente, la production et les références expédiées. On a donc $$\forall i \in T; \forall r \in \mathcal{R}; s_{i,r} = x_{i,r} + s_{i-1,r} - d_{i, r}$$
-\item On souhaite satisfaire la demande chaque semaine. On souhaite donc que $\forall i \in T; \forall r \in \mathcal{R}; x_{i,r} + s_{i-1,r} \ge d_{i, r}$. Or, sachant que les stocks sont toujours positifs, cette contrainte est inclue dans la contrainte précédente : on n'a donc pas besoin de rajouter de contrainte supplémentaire dans le modèle.
+\item À chaque nouvelle semaine, on actualise le stock de la nouvelle semaine avec le stock de la semaine précédente, la production et les références expédiées. On a donc $$\forall i \in T^*; \forall r \in \mathcal{R}; s_{i,r} = x_{i,r} + s_{i-1,r} - d_{i, r}$$
+Sachant que le stock est toujours positif, cette contrainte permet également de s'assurer qu'on satisfait bien la demande chaque semaine.
 \item D'autre part, on ne peut pas produire plus de $N$ références par semaine, ce qu'on peut traduire par : $$\forall i \in T^*; \sum_{r \in \mathcal{R}} \mathbf{1}_{x_{i, r} > 0} \le N$$.
 \item Enfin, il faut satisfaire la capacité de production de l'usine : On ajoute donc la relation :
 $$\forall i \in T^*; \sum_{r \in \mathcal{R}} x_{i, r} \le Q$$
@@ -58,11 +58,13 @@ Par ailleurs, dans l'implémentation, on inverse les lignes et colonnes de d (co
 
 \subsection{2. Résolution avec GLPK}
 On récupère les trois sets de données envoyés par mails, et on les place dans les fichiers \emph{Q1\_dataset\_1.dat}, \emph{Q1\_dataset\_2.dat} et \emph{Q1\_dataset\_3.dat}. \\
-Le programme linéaire a été traduit dans GLPK dans le fichier \emph{production.mod}.
+Le programme linéaire a été traduit dans GLPK dans le fichier \emph{production.mod}. On peut exécuter tous les programmes d'un coup en lançant \emph{production.sh}.
 \ \\
 \subsubsection{Première instance}
 Le programme ne trouve pas de solution réalisable pour la première instance. \ \\
-En prenant $N'=3$ (sachant que $N=2$) et $Q'=Q$, on trouve une solution réalisable, de coût 226. $Q+N$ minore la solution optimale mais n'est pas réalisable, $Q'+N'=Q+N+1$. Cette instance étant réalisable et s'agissant un problème linéaire en nombres entiers, c'est la solution optimale. \\
+\ \\
+En prenant $N'=3$ (sachant que $N=2$) et $Q'=Q$, on trouve une solution réalisable, de coût 226. \\
+$Q+N$ minore la solution optimale mais n'est pas réalisable, $Q'+N'=Q+N+1$. Cette instance étant réalisable et s'agissant un problème linéaire en nombres entiers, c'est la solution optimale. \\
 
 En prenant donc $Q'=Q$ et $N'=N+1=3$, on trouve le plan de production suivant (la matrice se lit avec la ligne r = référence r, colonne i = semaine i, conformément au format des données reçues) :
 
@@ -81,7 +83,8 @@ En prenant donc $Q'=Q$ et $N'=N+1=3$, on trouve le plan de production suivant (l
 \]
 
 avec un coût total de 226. \\
-Si on veut satisfaire la demande, il vaut donc mieux ouvrir une nouvelle ligne de production afin d'être capable de produire une référence supplémentaire dans la semaine (et ainsi augmenter $N$).
+\ \\
+Si on veut satisfaire précisément cette demande, il faut donc ouvrir une nouvelle ligne de production afin d'être capable de produire une référence supplémentaire dans la semaine (et ainsi augmenter $N$).
 
 \subsubsection{Deuxième instance}
 On trouve le plan optimal de production suivant (on a toujours $x[r,i]$ la quantité produite de la référence r à la semaine i, conformément au format des données reçues):
@@ -106,7 +109,7 @@ On trouve le plan optimal de production suivant (on a toujours $x[r,i]$ la quant
 avec un coût total de 766.
 
 \subsubsection{Troisième instance}
-On trouve le plan optimal de production suivant (on a toujours $x[r,i]$ la quantité produite de la référence r à la semaine i, conformément au format des données reçues):
+Le programme renvoie le plan optimal de production suivant (on a toujours $x[r,i]$ la quantité produite de la référence r à la semaine i, conformément au format des données reçues):
 
 \[x=
 \begin{matrix}
@@ -129,47 +132,75 @@ avec un coût total de 368.
 
 \section{Deuxième partie - Un problème d'ordonnancement de trains et de navettes}
 
-Nous avons décider de formuler le problème sous forme de programme linéaire en nombre entier.
+Nous avons choisi de formuler le problème sous forme de programme linéaire en nombre entier.
 
 \subsection{Notation utilisée}
 
-Les paramètres du problèmes sont :$e$, $h$ et $p$ sont respectivement le nombre d'eurostars, de HGV et de PAX que l'on souhaite faire passer dans le tunnel. $n = e + h + p$ et $n_{mat} = [e, h, p]$. Enfin, $t$ est le tableau des tampons comme défini dans l'ennoncé.
-
-On introduit également la quantité $f_{max} = \frac{3600}{n - 1}$ qui correspond à une borne supérieure facile à calculer de la flexibilité.
-
-Les variables que l'on introduit pour résoudre le problème sont :
+Les paramètres du problèmes sont : $e$, $h$ et $p$, respectivement le nombre d'eurostars, de HGV et de PAX que l'on souhaite faire passer. \\
+On note $n = e + h + p$ et $n_{mat} = [e, h, p]$. \\
+Enfin, $t$ est le tableau des tampons comme défini dans l’énoncé. \\
+\ \\
+On introduit également la quantité $f_{max} = \frac{3600}{n - 1}$, qui correspond à une borne supérieure évidente de la flexibilité.
+\ \\
+Enfin, on introduit les variables suivantes :
 \begin{itemize}
-	\item $T$ est une matrice $n \times 3$ qui permet de lire l'ordre des trains qui partent. Ainsi, le coefficient $T_{i,j}$ vaut $1$ si un train de type $j$ est le $i$\up{ième} mobile à entrer dans le tunnel. Il vaut 0 sinon.
-	\item $D$ est une matrice $n \times 3$ qui donne la date de départ des trains. Là où $T$ est nulle, $D$ est nulle. Sinon, la valeur de $D_{i, j}$ est le moment (en seconde) où le train part du quai. (Notons que le premier départ possible est à $1s$ et le dernier à $3600s$ au lieu de $0s$ et $3599s$).
+	\item $T$ est une matrice $n \times 3$ qui décrit l'ordre des trains qui partent. \\Ainsi, le coefficient $T_{i,j}$ vaut $1$ si un train de type $j$ est le $i$\up{ième} mobile à entrer dans le tunnel. Sinon, il vaut 0.
+	\item $D$ est une matrice $n \times 3$ qui donne la date de départ des trains. Là où $T$ est nulle, $D$ est nulle. Sinon, la valeur de $D_{i, j}$ est la date (en secondes) où le train part du quai. (Notons que le premier départ possible est à $1s$ et le dernier à $3600s$ au lieu de $0s$ et $3599s$).
 	\item $E$ est une matrice $n \times n$ qui va montrer les moments de départs des eurostars de la première demi-heure. Ainsi, $E_{i, j}$ vaut $1$ si le $i$\up{ième} train à partir est un eurostar, le $j$\up{ième} train est également un eurostar et qu'ils sont séparés de $1800s$. Cela équivaut à $\mathbf{1_{T_{i,1} = T_{j,1} = 1\ \cup\ D_{j,1} - D_{i,1} = 1800}}$.
-	\item $S$ est un vecteur à $n$ lignes. Il vaut $1$ si le train partant en $i$\up{ième} position est un eurostar et que la date de départ est inférieure à $1800s$.
+	\item $S$ est un vecteur à $n$ lignes. Sa $i$\up{ième} composante vaut $1$ si le train partant en $i$\up{ième} position est un eurostar et que sa date de départ est inférieure à $1800s$.
 	\item Finalement, $f_{value}$ est la valeur de la flexibilité.
 \end{itemize}
-
-\subsection{Représentation linéaire des contraintes}
+\clearpage
+\subsection{Représentation linéaire du problème}
 
 Notre fonction objectif est donc simplement $f_{value}$ qu'on cherche à maximiser.
 
 \begin{itemize}
 	\item Il n'y a qu'un seul train qui part à chaque horaire : $\forall i \in [n]; \ \sum_{j = 1}^3 T_{i, j} = 1$.
 	\item On envoie le bon nombre de chaque type de train : $\forall j \in [3]; \ \sum_{j = 1}^n T_{i, j} = n_{mat}[j]$.
-	\item On contraint $D$ à être nulle quand $T$ est nulle et sinon, à être entre $1$ et $3600$ : $\forall i \in [n], \forall j \in [3]; \ T_{i, j} \le D_{i, j} \le 3600 * T_{i, j}$.
-	\item Cette contrainte représente la contrainte d'écart minimal entre deux trains consécutifs : 
-	Si on considère dans un premier temps les trains qui se suivent dans la même heure, on a une contrainte du type : $D_{k, l} - D_{i, j} \ge t_{j, l} + f_{value}$ (sans se soucier des indices pour le moment). Si les trains se suivent sur deux horaires différentes on modifierais simplement de telle sorte : $D_{k, l} - (D_{i, j} - 3600) \ge t_{j, l} + f_{value}$. Maintenant, lorsque l'on parcourt les indices, il y a des cas où $D$ sera nulle, et donc il faut qu'on impose rien dans ce cas. C'est pourquoi on soustrait au terme de droite la valeur : $(3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l}))$ qui vaut 0 lorsque $D_{i, j}$ et $D_{k, l}$ sont non nuls, et est plus grand que $t_{j, l} + f_{value}$ sinon. En rajoutant ces conditions, les indices peuvent librement parcourir $[n]$ et $[3]$.
+	\item On contraint $D$ à être nulle quand $T$ est nulle et sinon, à être entre $1$ et $3600$ : \\ $\forall i \in [n], \forall j \in [3]; \ T_{i, j} \le D_{i, j} \le 3600 * T_{i, j}$.
+	\item Cette contrainte permet de traduire la contrainte d'écart minimal entre deux trains consécutifs : \\
+	Si on considère dans un premier temps les trains qui se suivent dans la même heure, on a une contrainte du type : $D_{k, l} - D_{i, j} \ge t_{j, l} + f_{value}$ avec $k>i$.\\ Si les trains se suivent sur deux heures différentes, on modifie simplement de la sorte : \\ $D_{k, l} - (D_{i, j} - 3600) \ge t_{j, l} + f_{value}$. \\Enfin, lorsqu'on parcourt $D$, il y a des cas où la valeur sera nulle, et il ne faut donc pas que cette contrainte s'applique. C'est pourquoi on soustrait au terme de droite la valeur : $(3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l}))$ qui vaut 0 lorsque $D_{i, j}$ et $D_{k, l}$ sont non nuls, et est plus grand que $t_{j, l} + f_{value}$ sinon. \\
+    En ajoutant ces conditions, les indices peuvent librement parcourir $[n]$ et $[3]$.
 	\begin{itemize}
 		\item $\forall i \in [n-1], \forall k \in \llbracket i, n \rrbracket, \forall (j, l) \in [3]^2; D_{k, l} - D_{i, j} \ge t_{j, l} + f_{value} - (3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l}))$
 		\item $\forall i \in [n-1], \forall k \in \llbracket i, n \rrbracket, \forall (j, l) \in [3]^2; D_{k, l} - (D_{i, j} - 3600) \ge t_{j, l} + f_{value} - (3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l}))$
 	\end{itemize}
-	\item Cette contrainte est la première de celle représentant l'écart de 30 minutes entre deux eurostars. Elle assure que $E$ ne donne des informations que sur les eurostars de la première demi-heure. $\forall i \in [n], \forall j \in [i]; E_{i, j} = 0$.
-	\item On s'assure ici qu'il existe un unique eurostar associé à un autre eurostar.
+    \ \\
+    Intéressons nous maintenant à la contrainte des eurostars \emph{liés} (c'est à dire séparés de 30 minutes exactement).
+	\item Tout d'abord, on s'assure que $E$ ne donne d'informations que sur les eurostars de la première demi-heure : $\forall i \in [n], \forall j \in [i]; E_{i, j} = 0$.
+	\item On s'assure ici qu'il existe bien un, et un seul, eurostar associé à un autre eurostar :
 	\begin{itemize}
 		\item $\forall i \in [n-1]; \sum_{j = i+1}^n E_{i, j} = S_i$.
 		\item $\forall j \in \llbracket 2, n \rrbracket; \sum_{i = 1}^{j-1} E_{i, j} = T_{i, 1} - S_i$.
 	\end{itemize}
-	\item Enfin, cette dernière contrainte fixe l'écart, lorsqu'il est justifiée à 30 minutes : $\forall i \in [n-1], \forall j \in \llbracket i+1, n \rrbracket; - 5400 * (1 - E_{i, j})  \le D_{j, 1} - D_{i, 1} - 1800 \le 1800 * (1 - E_{i, j})$
+	\item Enfin, on fixe l'écart entre deux trains à 30 minutes, s'il s'agit bien de deux eurostars \emph{liés} : \\ $\forall i \in [n-1], \forall j \in \llbracket i+1, n \rrbracket; - 5400 * (1 - E_{i, j})  \le D_{j, 1} - D_{i, 1} - 1800 \le 1800 * (1 - E_{i, j})$
 
 \end{itemize}
+\clearpage
 
+Notre programme linéaire s'écrit donc de la façon suivante : \\
+\ \\
+\begin{equation*}
+\begin{aligned}
+& \max \ \ \  f_{value} \\
+& \text{sous contraintes : } \\
+& \forall i \in [n]; \ \sum_{j = 1}^3 T_{i, j} = 1 \\
+& \forall j \in [3]; \ \sum_{j = 1}^n T_{i, j} = n_{mat}[j] \\
+& \forall i \in [n], \forall j \in [3]; \ T_{i, j} \le D_{i, j} \le 3600 * T_{i, j} \\
+& \forall i \in [n-1], \forall k \in \llbracket i, n \rrbracket, \forall (j, l) \in [3]^2; \\
+& \ \ \ D_{k, l} - D_{i, j} \ge t_{j, l} + f_{value} - (3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l})) \\
+& \forall i \in [n-1], \forall k \in \llbracket i, n \rrbracket, \forall (j, l) \in [3]^2; \\
+& \ \ \ D_{k, l} - (D_{i, j} - 3600) \ge t_{j, l} + f_{value} - (3600 + 480 + f_{max}) \times ((1 - T_{i, j}) + (1 - T_{k, l})) \\
+& \forall i \in [n], \forall j \in [i]; E_{i, j} = 0 \\
+& \forall i \in [n-1]; \sum_{j = i+1}^n E_{i, j} = S_i \\
+& \forall j \in \llbracket 2, n \rrbracket; \sum_{i = 1}^{j-1} E_{i, j} = T_{i, 1} - S_i \\
+& \forall i \in [n-1], \forall j \in \llbracket i+1, n \rrbracket; - 5400 * (1 - E_{i, j})  \le D_{j, 1} - D_{i, 1} - 1800 \le 1800 * (1 - E_{i, j})
+\end{aligned}
+\end{equation*}
+\ \\
+\ \\
+La traduction de ce programme sur GLPK se trouve dans le fichier \emph{eurotunnel.mod}. \\
 En lançant plusieurs fois notre programme linéaire, celui-ci propose plusieurs grilles horaires, comme par exemple :
 
 \[Grille \  horaire_1 =
@@ -181,7 +212,9 @@ H5 & H6 & H7 & H8 & E3 & E4 & P2 \\
 1801 & 2024 & 2247 & 2470 & 2993 & 3215 & 3378
 \end{matrix}
 \]
-
+\ \\
+et
+\ \\
 \[Grille \  horaire_2 =
 \begin{matrix}
 H1 & H2 & E1 & E2 & P1 & H3 & H4 \\
@@ -196,21 +229,21 @@ H5 & H6 & H7 & H8 & E3 & E4 & P2 \\
 Qui ont toutes une flexibilité de 42 secondes. Comme les grilles horaires correspondent à une solution optimale d'un programme linéaire en nombres entiers, la flexibilité trouvée est donc optimale.
 
 \subsection{2. Le plus de navettes HGV possibles}
-On augmente h dans \emph{Q2\_data\_1.dat}. À partir de $h=12$, le solveur indique qu'aucune solution réalisable n'existe : $h=11$ est donc le maximum de navettes HGV qu'on puisse faire passer pour $e=4$ et $p=2$.
+On augmente h dans \emph{Q2\_dataset\_1.dat}. Le temps de résolution augmente très rapidement, c'est pourquoi pour déterminer la valeur maximale de $h$ pour laquelle il existe des solutions réalisables, on fixe la flexibilité à zéro (si il n'existe aucune solution de flexibilité nulle, alors il n'existe aucune solution réalisable au problème).
+À partir de $h=12$, le solveur indique qu'aucune solution réalisable n'existe : $h=11$ est donc le maximum de navettes HGV qu'on puisse faire passer pour $e=4$ et $p=2$.
 
-Pour des grandes valeurs de $h$, le programme met beaucoup de temps à calculer, c'est pourquoi nous posons la flexibilité à zéro : on souhaite simplement trouver une solution réalisable, pas nécessairement la grille avec la flexibilité la plus grande possible. \\
-Pour $h=11$, on peut proposer la grille horaire suivante :
+On refait donc tourner le programme linéaire pour $h=11$, et le solveur propose la grille suivante : \\
 
-
-\[Grille \  horaire_2 =
+\[Grille \  horaire =
 \begin{matrix}
-H1 & H2 & H3 & H4 & E1 & E2 & P1 & P2 \\
-1 & 181 & 361 & 541 & 1021 & 1201 & 1321 & 1441\\
+P1 & P2 & H1 & H2 & H3 & H4 & H5 & E1 \\
+120 & 240 & 420 & 600 & 780 & 960 & 1140 & 1620\\
 \ \\
-H5 & H6 & H7 & H8 & H9 & E3 & E4 & H10 & H11 \\
-1621 & 1801 & 1981 & 2161 & 2341 & 2821 & 3001 & 3241 & 3421
+E2 & H6 & H7 & H8 & H9 & H10 & H11 & E3 & E4 \\
+1800 & 2040 & 2220 & 2400 & 2580 & 2760 & 2940 & 3420 & 3600
 \end{matrix}
 \]
 
+qui a une flexibilité nulle. On peut donc faire passer au plus $h=11$ navettes HGV, mais la grille horaire sera (nécessairement) de flexibilité nulle.
 
 \end{document}
